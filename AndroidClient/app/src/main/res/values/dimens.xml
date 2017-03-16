@@ -6,4 +6,27 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <!--搜索卡片相关-->
+    <dimen name="search_card_size">48dp</dimen>
+    <dimen name="search_bar_horizontal_padding">16dp</dimen>
+    <dimen name="search_bar_back_icon_spacing">16dp</dimen>
+
+    <!--头像相关-->
+    <dimen name="big_round_avatar_size">144dp</dimen>
+    <dimen name="small_round_avatar_size">72dp</dimen>
+    <dimen name="round_avatar_margin">16dp</dimen>
+
+    <!--卡片相关-->
+    <dimen name="card_content_padding">8dp</dimen>
+    <dimen name="card_margin">4dp</dimen>
+
+    <!--图标相关-->
+    <dimen name="icon_size">24dp</dimen>
+
+    <dimen name="profile_option_height">48dp</dimen>
+    <dimen name="profile_option_padding_left">16dp</dimen>
+    <dimen name="profile_option_icon_text_spacing">16dp</dimen>
+
 </resources>

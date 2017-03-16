@@ -14,11 +14,10 @@
     android:gravity="bottom">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/small_round_avatar_size"
+        android:layout_height="@dimen/small_round_avatar_size"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@android:drawable/sym_def_app_icon"
-        android:id="@+id/imageView" />
+        android:id="@+id/avatar" />
 
     <TextView
         android:layout_width="match_parent"
