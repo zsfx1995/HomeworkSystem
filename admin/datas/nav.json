@@ -1,0 +1,88 @@
+[{
+		"title" : "基本元素",
+		"icon" : "fa-cubes",
+		"spread" : true,
+		"children" : [{
+				"title" : "按钮",
+				"icon" : "&#xe641;",
+				"href" : "button.html"
+			}, {
+				"title" : "表单",
+				"icon" : "&#xe63c;",
+				"href" : "form.html"
+			}, {
+				"title" : "表格",
+				"icon" : "&#xe63c;",
+				"href" : "table.html"
+			}, {
+				"title" : "导航",
+				"icon" : "&#xe609;",
+				"href" : "nav.html"
+			}, {
+				"title" : "Tab选项卡",
+				"icon" : "&#xe62a;",
+				"href" : "tab.html"
+			}, {
+				"title" : "辅助性元素",
+				"icon" : "&#xe60c;",
+				"href" : "auxiliar.html"
+			}
+		]
+	}, {
+		"title" : "活动管理",
+		"icon" : "fa-cubes",
+		"spread" : true,
+		"children" : [{
+				"title" : "所有活动",
+				"icon" : "&#xe641;",
+				"href" : "button.html"
+			}, {
+				"title" : "新增活动",
+				"icon" : "&#xe63c;",
+				"href" : "form.html"
+			}
+		]
+	}, {
+		"title" : "学科管理",
+		"icon" : "fa-cubes",
+		"spread" : true,
+		"children" : [{
+				"title" : "所有学科",
+				"icon" : "&#xe641;",
+				"href" : "button.html"
+			}, {
+				"title" : "新增学科",
+				"icon" : "&#xe63c;",
+				"href" : "form.html"
+			}
+		]
+	}, {
+		"title" : "试卷管理",
+		"icon" : "fa-cubes",
+		"spread" : true,
+		"children" : [{
+				"title" : "所有试卷",
+				"icon" : "&#xe641;",
+				"href" : "button.html"
+			}, {
+				"title" : "新增试卷",
+				"icon" : "&#xe63c;",
+				"href" : "form.html"
+			}
+		]
+	}, {
+		"title" : "题目管理",
+		"icon" : "fa-cubes",
+		"spread" : true,
+		"children" : [{
+				"title" : "所有题目",
+				"icon" : "&#xe641;",
+				"href" : "button.html"
+			}, {
+				"title" : "新增题目",
+				"icon" : "&#xe63c;",
+				"href" : "form.html"
+			}
+		]
+	}
+]

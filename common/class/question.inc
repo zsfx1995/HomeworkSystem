@@ -111,7 +111,9 @@
 		function getTips(){
 			return $this-> getAttriValue('Tips');
 		}
-		
+		function getData_Create_time(){
+			return $this-> getAttriValue('Data_Create_time');
+		}
 		function setType($a){
 			$this->setAttriValue('Qtype',$a) ;
 		}
@@ -119,7 +121,7 @@
 			$this->setAttriValue('Detail',$a) ;
 		}
 		 function setAns($a){
-			$this->setAttriValue('QAns',$a) ;
+			$this->setAttriValue('Ans',$a) ;
 		}
 		 function setTips($a){
 			$this->setAttriValue('Tips',$a) ;

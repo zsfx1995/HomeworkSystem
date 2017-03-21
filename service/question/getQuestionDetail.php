@@ -22,12 +22,14 @@
 	
 	$questionObj -> s_Search( $Qid );
 	$questionObj -> getOneRecord();
+	
+	
 	$return_arr = array(
 		'Qid' => (int) $questionObj -> getQid(),
 		'Type' => (int)$questionObj -> getType(),
-		'Detail' => urlencode ( $questionObj -> getDetail() ),
-		'Ans' => $questionObj -> getAns(),
-		'Tips' => $questionObj -> getTips()
+		'Detail' => $questionObj -> getDetail() ,
+		'Ans' =>  $questionObj -> getAns() ,
+		'Tips' =>   $questionObj -> getTips() 
 	);  
-	echo urldecode( json_encode($return_arr));
+	echo json_encode($return_arr);
 ?>

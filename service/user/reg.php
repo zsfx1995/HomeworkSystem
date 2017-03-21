@@ -6,7 +6,7 @@
 	include_once("../../common/class/user.inc");
 	include_once("../../common/class/error.inc");
 	
-	$Code = 201;
+	$Code = 200;
 	$Uid = 0;
 	
 	$type = (int) $_POST['type'];
@@ -32,7 +32,7 @@
 		$userObj -> setPassword ( $password );
 		$user_flag=$userObj->addRecorded();
 		if(!$user_flag){
-			$Code  = 201;
+			$Code  = 200;
 			$errorObj=$userObj->getError();
 			$errorObj->showErrors($show_sql_flag=false);
 		}else{

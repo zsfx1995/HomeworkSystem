@@ -35,7 +35,7 @@
 		$errorObj->showErrors($show_sql_flag=false);
 	}
 	$return_arr = array(
-		'ResCode' => $flag ? 101 : 201
+		'ResCode' => $flag ? 100 : 200
 	); 
 
 	echo  json_encode($return_arr);

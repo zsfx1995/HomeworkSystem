@@ -6,7 +6,7 @@
 	include_once("../../common/class/user.inc");
 	include_once("../../common/class/error.inc");
 	
-	$Code = 300;
+	$Code = 200;
 	$Uid = 0;
 	
 	$type = (int) $_POST['type'];
@@ -35,7 +35,7 @@
 		}
 	}
 	else
-		$Code = 201; // 未注册
+		$Code = 102; // 未注册
 	
 
 	$return_arr = array(

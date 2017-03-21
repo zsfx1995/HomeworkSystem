@@ -47,6 +47,7 @@
 		$Str='';
 		if(strlen($Aid)>0){			
 			$Str.=" AND Aid='$Aid'";			
+			
 		}
 		
 		$strOrderby=" order by Aid desc";
@@ -60,9 +61,8 @@
    
    /* 获取所有的数据*/
 	    function  a_Search() {
-		
-		
-		$strOrderby=" order by Aid desc";
+				
+		$strOrderby=" order by Aid asc";
 		$strSQL="SELECT * FROM t_activity  Where 1 ".$strOrderby;
 		$tmp_result=$this->openQuery($strSQL) ;
 		if(!$tmp_result){
