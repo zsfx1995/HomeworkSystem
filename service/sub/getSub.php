@@ -29,14 +29,15 @@
 	for( $i = 1 ; $i <= $count ; $i ++ ){
 		$subObj -> getOneRecord();
 		$SubList[$i - 1 ] = new stdClass();
-		$SubList[$i - 1 ]-> Sid = (int) $subObj -> getSid(); 
-		$SubList[$i - 1 ]-> Sname = urlencode($subObj -> getSname());
-	
+		$SubList[$i - 1 ]-> ID = (int) $subObj -> getSid(); 
+		$SubList[$i - 1 ]-> Sname = ($subObj -> getSname());
+		$SubList[$i - 1 ]-> Description = ($subObj -> getDescription());
+		
 		$subObj -> moveNext();
 	}
 	
 	$return_arr = array(
 		'sub' => $SubList
 	);  
-	echo urldecode( json_encode($return_arr));
+	echo ( json_encode($SubList));
 ?>

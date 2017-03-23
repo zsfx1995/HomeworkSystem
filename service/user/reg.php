@@ -45,7 +45,7 @@
 	
 	$return_arr = array(
 		'RespCode' => $Code,
-		'Uid' => $Uid
+		'ID' => $Uid
 	);  
 	echo json_encode($return_arr);
 

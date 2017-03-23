@@ -89,12 +89,23 @@
 		function getPname(){
 			return $this-> getAttriValue('Pname');
 		}
+		
+		function getDescription(){
+			return $this-> getAttriValue('Description');
+		}
+		function getDataCreateTime(){
+			return $this-> getAttriValue('Data_create_time');
+		}
+		
 		function getLimitTime(){
 			return $this-> getAttriValue('LimitTime');
 		}
 		 function setPname($a){
 			$this->setAttriValue('Pname',$a) ;
 		}
+		 function setDescription($a){
+			$this->setAttriValue('Description',$a) ;
+		 }
 		  function setLimitTime($a){
 			$this->setAttriValue('LimitTime',$a) ;
 		}

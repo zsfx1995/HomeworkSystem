@@ -84,7 +84,7 @@
 				<h1><?php echo $result ?> </h1>
 			</header>
 			<div class="beg-login-main">
-						<button class="layui-btn layui-btn-primary"  onClick="location.href='../../admin/addQuestion.html'">
+						<button class="layui-btn layui-btn-primary"  onClick="location.href='../../admin/question/addQuestion.html'">
 							<i class="layui-icon">&#xe650;</i> 继续添加
 			</div>
 		</div>

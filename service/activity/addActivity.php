@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	
 	include_once("../../common/include/common.inc");
 	include_once("../../common/class/baseDatabase.inc");
@@ -7,30 +7,55 @@
 	include_once("../../common/class/error.inc");
 	include_once("../../common/class/activity.inc");
 	
-		
-	$actObj = new activity();
+	$title = isset($_POST["title"]) ?  $_POST["title"] : "无";
+	$description = isset($_POST["description"]) ?  $_POST["description"] : "无";
 	
-	if(!$actObj->createConnect()){
-		$errorObj=$actObj->getError();
+	
+	//写入数据库
+	$activityObj = new activity();
+	$activityObj -> setAName( urlencode( $title )  );
+	$activityObj -> setDescription( urlencode( $description )  );
+	
+	
+	//写入数据库
+	if(!$activityObj->createConnect()){
+		$errorObj=$activityObj->getError();
 		$errorObj->showErrors($show_sql_flag=false);
 	}
-	$actObj -> a_Search();
-	$count = $actObj -> getRecordCount();
-	
-	//ѭ���������
-	$ActList = array();
-	$actObj -> moveFirst();
-	for( $i = 1 ; $i <= $count ; $i ++ ){
-		$actObj -> getOneRecord();
-		$ActList[$i - 1 ] = new stdClass();
-		$ActList[$i - 1 ]-> Aid = (int) $actObj -> getAid(); 
-		$ActList[$i - 1 ]-> Aname = urlencode($actObj -> getAName());
-	
-		$actObj -> moveNext();
+	$flag = $activityObj -> addRecorded();
+	if( !$flag ){
+		$result = "添加活动失败";
+		$more = "";
 	}
+	else{
+		$id = $activityObj -> getInsertId();
+		$result = "添加活动成功,活动ID为$id";
+	}
+		
 	
-	$return_arr = array(
-		'Activity' => $ActList
-	);  
-	echo urldecode( json_encode($return_arr));
+	
 ?>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta title="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>添加活动</title>
+		<link rel="stylesheet" href="../../admin/plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../admin/css/result.css" />
+	</head>
+
+	<body class="beg-login-bg" onload="toast()">
+		<div class="beg-login-box">
+			<header>
+				<h1><?php echo $result ?> </h1>
+			</header>
+			<div class="beg-login-main">
+						<button class="layui-btn layui-btn-primary"  onClick="location.href='../../admin/activity/addActivity.html'">
+							<i class="layui-icon">&#xe650;</i> 继续添加
+			</div>
+		</div>
+	
+	</body>
+</html>

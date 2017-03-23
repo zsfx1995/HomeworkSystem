@@ -33,8 +33,9 @@
 	for( $i = 1 ; $i <= $count ; $i ++ ){
 		$paperObj -> getOneRecord();
 		$PaperList[$i - 1 ] = new stdClass();
-		$PaperList[$i - 1 ]-> Pid = (int) $paperObj -> getPid(); 
-		$PaperList[$i - 1 ]-> Pname = urlencode($paperObj -> getPname());
+		$PaperList[$i - 1 ]-> ID = (int) $paperObj -> getPid(); 
+		$PaperList[$i - 1 ]-> Pname = ($paperObj -> getPname());
+		$PaperList[$i - 1 ]-> Description = ($paperObj -> getDescription());
 		$PaperList[$i - 1 ]-> LimitTime = $paperObj -> getLimitTime();
 	
 		$paperObj -> moveNext();
@@ -43,5 +44,5 @@
 	$return_arr = array(
 		'paper' => $PaperList
 	);  
-	echo urldecode( json_encode($return_arr));
+	echo  json_encode($PaperList);
 ?>

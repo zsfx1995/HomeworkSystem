@@ -23,14 +23,16 @@
 	for( $i = 1 ; $i <= $count ; $i ++ ){
 		$actObj -> getOneRecord();
 		$ActList[$i - 1 ] = new stdClass();
-		$ActList[$i - 1 ]-> Aid = (int) $actObj -> getAid(); 
-		$ActList[$i - 1 ]-> Aname = urlencode($actObj -> getAName());
-	
+		$ActList[$i - 1 ]-> ID = (int) $actObj -> getAid(); 
+		$ActList[$i - 1 ]-> Aname = ($actObj -> getAName());
+		$ActList[$i - 1 ]-> Description = ($actObj -> getDescription());
+		$ActList[$i - 1 ]-> PicUrl = ($actObj -> getPicUrl());
+		
 		$actObj -> moveNext();
 	}
 	
 	$return_arr = array(
 		'Activity' => $ActList
 	);  
-	echo urldecode( json_encode($return_arr));
+	echo ( json_encode($ActList));
 ?>

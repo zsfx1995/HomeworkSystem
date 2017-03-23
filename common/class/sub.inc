@@ -7,7 +7,7 @@
 	 ***********************************************************************/
 
 	class sub extends BaseTable{
-	     /*
+	 /*
 	@名称：建构函数
 	@功能：构建对象，同时设定具体的数据库表的名称
 	*/ 
@@ -60,7 +60,7 @@
    
    /* 获取所有的数据/获取活动下的学科数据*/
 	    function  a_Search( $Aid = 0 ) {
-		$strOrderby=" order by Sid desc";
+		$strOrderby=" order by Sid ASC";
 		if( $Aid == 0 ){ 
 			//查询所有的学科
 			$strSQL="SELECT * FROM t_sub  Where 1 ".$strOrderby;
@@ -85,8 +85,24 @@
 
 			return $this-> getAttriValue('Sname');
 		}
+		function getDescription(){
+
+			return $this-> getAttriValue('Description');
+		}
+		function getDataCreateTime(){
+
+			return $this-> getAttriValue('Data_create_time');
+		}
+		
 		 function setSname($a){
 			$this->setAttriValue('Sname',$a) ;
 		}
+		 
+		 function setName($a){
+			$this->setAttriValue('Sname',$a) ;
+		}
+		 function setDescription($a){
+			$this->setAttriValue('Description',$a) ;
+		 }
 		
 	}

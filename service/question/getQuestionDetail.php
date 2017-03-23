@@ -25,7 +25,7 @@
 	
 	
 	$return_arr = array(
-		'Qid' => (int) $questionObj -> getQid(),
+		'ID' => (int) $questionObj -> getQid(),
 		'Type' => (int)$questionObj -> getType(),
 		'Detail' => $questionObj -> getDetail() ,
 		'Ans' =>  $questionObj -> getAns() ,

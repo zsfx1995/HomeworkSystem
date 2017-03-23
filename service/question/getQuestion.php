@@ -37,7 +37,7 @@
 	for( $i = 1 ; $i <= $count ; $i ++ ){
 		$questionObj -> getOneRecord();
 		$QuestionList[$i - 1 ] = new stdClass();
-		$QuestionList[$i - 1 ]-> Qid = (int) $questionObj -> getQid(); 
+		$QuestionList[$i - 1 ]-> ID = (int) $questionObj -> getQid(); 
 		
 	
 		$questionObj -> moveNext();
@@ -46,5 +46,5 @@
 	$return_arr = array(
 		'question' => $QuestionList
 	);  
-	echo urldecode( json_encode($return_arr));
+	echo json_encode($QuestionList);
 ?>

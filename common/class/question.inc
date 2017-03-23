@@ -59,8 +59,8 @@
    }  
    
    /* 获取所有/指定活动/指定学科/指定试卷下所有题目*/
-	    function  a_Search( $Aid = 0 ,$Sid = 0 , $Pid) {
-		$strOrderby=" order by Qid desc";
+	    function  a_Search( $Aid = 0 ,$Sid = 0 , $Pid = 0) {
+		$strOrderby=" order by Qid ASC";
 		if( $Pid == 0 ){
 			if( $Sid == 0 ){ 
 				if( $Aid == 0 )

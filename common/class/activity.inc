@@ -77,11 +77,26 @@
 			return $this-> getAttriValue('Aid');
 		}
 		function getAname(){
-
 			return $this-> getAttriValue('Aname');
+		}
+		function getDescription(){
+			return $this-> getAttriValue('Description');
+		}
+		 function getDataCreateTime(){
+			return $this-> getAttriValue('Data_create_time');
+		}
+		 function setPicUrl($a){
+			$this->setAttriValue('PicUrl',$a) ;
+		}
+		 function getPicUrl(){
+			return $this-> getAttriValue('PicUrl');
 		}
 		 function setAname($a){
 			$this->setAttriValue('Aname',$a) ;
 		}
+		 function setDescription($a){
+			$this->setAttriValue('Description',$a) ;
+		}
+		 
 		
 	}
