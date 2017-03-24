@@ -141,3 +141,6 @@ CREATE TABLE T_Admin_User(
 	Password CHAR(200) not null,
 	Role INT DEFAULT 0
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- 默认管理员账号
+INSERT INTO T_Admin_User ( UserName , Password ) VALUES ( "admin" , "admin ");

@@ -63,13 +63,12 @@
 	  /*身份校验*/
 	 function  checkID ( $username , $password  ) {
 		
-			
-		$Str.=" AND username = '$username' AND password = '$password' ";			
-		
+		$Str =" AND UserName = '$username' AND Password = '$password' ";			
 		
 		$strOrderby=" order by UserName desc";
 
 		$strSQL="SELECT * FROM t_admin_user  Where 1 ".$Str.$strOrderby;
+	//	echo $strSQL;
 		$tmp_result=$this->openQuery($strSQL) ;
 		if(!$tmp_result){
 			$this->setError(@mysql_error($this->db_connection),'Search t_admin_user Error!','admin_user.inc','admin_user',$strSQL);

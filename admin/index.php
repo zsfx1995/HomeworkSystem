@@ -1,5 +1,21 @@
-<!DOCTYPE html>
+<?php
+	 session_start();
 
+	include_once("../common/include/common.inc");
+	include_once("../common/class/baseDatabase.inc");
+	include_once("../common/class/baseTable.inc");
+	include_once("../common/class/admin_user.inc");
+	include_once("../common/class/error.inc");
+	
+	if(!isset($_SESSION['sess_user_id'])) 
+   { 
+    echo "<html>";
+    echo "<br><br><br><br><br><br><br><br>";
+    echo "身份验证失败，属于非法登录!"; 
+    echo "<A href='".P_HOMEPAGE_URL."admin/login.html'>请先登录</A></html>";
+    exit;
+	}
+?>
 <html>
 
 	<head>
@@ -38,19 +54,13 @@
 								<span>admin</span>
 							</a>
 							<dl class="layui-nav-child">
-								<dd>
-									<a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息</a>
-								</dd>
+								
 								<dd>
 									<a href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a>
 								</dd>
-								<dd id="lock">
-									<a href="javascript:;">
-										<i class="fa fa-lock" aria-hidden="true" style="padding-right: 3px;padding-left: 1px;"></i> 锁屏 (Alt+L)
-									</a>
-								</dd>
+								
 								<dd>
-									<a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+									<a href="adminuser/signOut.php"><i class="fa fa-sign-out" aria-hidden="true" ></i> 注销</a>
 								</dd>
 							</dl>
 						</li>

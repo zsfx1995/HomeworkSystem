@@ -17,27 +17,24 @@
 				<h1>大学生做题系统管理后台</h1>
 			</header>
 			<div class="beg-login-main">
-				<form name="LoginForm" action="" class="layui-form" method="post">
+				<form name="LoginForm"  class="layui-form" method="post"  action="adminuser/login.php">
 					<input name="__RequestVerificationToken" type="hidden" value="fkfh8D89BFqTdrE2iiSdG_L781RSRtdWOH411poVUWhxzA5MzI8es07g6KPYQh9Log-xf84pIR2RIAEkOokZL3Ee3UKmX0Jc8bW8jOdhqo81" />
 					<div class="layui-form-item">
 						<label class="beg-login-icon">
                         <i class="layui-icon">&#xe612;</i>
                     </label>
-						<input type="text" name="username" lay-verify="username" autocomplete="off" placeholder="这里输入登录名" class="layui-input">
+						<input type="text" name="username" lay-verify="required" autocomplete="off" placeholder="这里输入登录名" class="layui-input">
 					</div>
 					<div class="layui-form-item">
 						<label class="beg-login-icon">
                         <i class="layui-icon">&#xe642;</i>
                     </label>
-						<input type="password" name="password" lay-verify="password" autocomplete="off" placeholder="这里输入密码" class="layui-input">
+						<input type="password" name="password" lay-verify="required" autocomplete="off" placeholder="这里输入密码" class="layui-input">
 					</div>
 					<div class="layui-form-item">
-						<div class="beg-pull-left beg-login-remember">
-							<label>记住帐号？</label>
-							<input type="checkbox" name="rememberMe" value="true" lay-skin="switch" checked title="记住帐号">
-						</div>
+						
 						<div class="beg-pull-right">
-							<button class="layui-btn layui-btn-primary" lay-submit lay-filter="login" onClick="checkForm()">
+							<button class="layui-btn layui-btn-primary" lay-submit lay-filter="submit"  >
                             <i class="layui-icon">&#xe650;</i> 登录
                         </button>
 						</div>
@@ -50,13 +47,31 @@
 			</footer>
 		</div>
 		<script type="text/javascript" src="plugins/layui/layui.js"></script>
-		<SCRIPT LANGUAGE="JavaScript">
-<!--
-			function checkForm(){
+		<script>
+		
+			layui.use(['form', 'layedit', 'laydate'], function() {
+				var form = layui.form(),
+					layer = layui.layer,
+					layedit = layui.layedit,
+					laydate = layui.laydate;
 				
-				LoginForm.action="login.php";
-				LoginForm.submit();    
-			}
+				//创建一个编辑器
+				var editIndex = layedit.build('LAY_demo_editor');
+				
+				//监听提交
+				form.on('submit(submit)', function(data) {
+					layer.alert(JSON.stringify(data.field), {
+						title: '最终的提交信息'
+					})
+				});
+				
+				
+			});
+		
+		</script>
+		
+<!--
+			
 
 
 //-->
