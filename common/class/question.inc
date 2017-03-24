@@ -59,39 +59,42 @@
    }  
    
    /* 获取所有/指定活动/指定学科/指定试卷下所有题目*/
-	    function  a_Search( $Aid = 0 ,$Sid = 0 , $Pid = 0) {
-		$strOrderby=" order by Qid ASC";
-		if( $Pid == 0 ){
-			if( $Sid == 0 ){ 
-				if( $Aid == 0 )
-					//查询所有的题目
-					$strSQL="SELECT * FROM t_question  Where 1 ".$strOrderby;
-				else	
-					//查询指定活动下的题目
-					$strSQL = "select q.* from t_question q join r_paper_ques rpq
-						on q.qid = rpq.qid 
+	    function  a_Search( $Aid = 0 ,$Sid = 0 , $Pid = 0 , $page = -1 ) {
+			$limitStr = $page >= 1 ? 
+				" limit " . NUM_OF_ONE_PAGE_PAPER* ( $page - 1) . "," . NUM_OF_ONE_PAGE_QUESTION
+				: $limitStr = "";
+			$strOrderby=" order by Qid ASC";
+			if( $Pid == 0 ){
+				if( $Sid == 0 ){ 
+					if( $Aid == 0 )
+						//查询所有的题目
+						$strSQL="SELECT * FROM t_question  Where 1 ".$strOrderby;
+					else	
+						//查询指定活动下的题目
+						$strSQL = "select q.* from t_question q join r_paper_ques rpq
+							on q.qid = rpq.qid 
+							join r_sub_paper rsp 
+							on rsp.pid = rpq.pid 
+							join r_activity_sub ras
+							on ras.sid = rsp.sid and ras.aid = '$Aid' ";	
+				}else{
+					//查询指定学科下的题目
+					$strSQL = "select q.* from t_question q join r_paper_ques rpq 
+						on q.qid = rpq.qid
 						join r_sub_paper rsp 
-						on rsp.pid = rpq.pid 
-						join r_activity_sub ras
-						on ras.sid = rsp.sid and ras.aid = '$Aid' ";	
+						on rsp.pid = rpq.pid and rsp.sid = '$Sid' ";		
+				}
 			}else{
-				//查询指定学科下的题目
-				$strSQL = "select q.* from t_question q join r_paper_ques rpq 
-					on q.qid = rpq.qid
-					join r_sub_paper rsp 
-					on rsp.pid = rpq.pid and rsp.sid = '$Sid' ";		
+				//查询指定试卷下的题目
+				$strSQL = "select q.* from t_question q join r_paper_ques r 
+					on q.qid = r.qid and r.pid = '$Pid' ";	
 			}
-		}else{
-			//查询指定试卷下的题目
-			$strSQL = "select q.* from t_question q join r_paper_ques r 
-				on q.qid = r.qid and r.pid = '$Pid' ";	
-		}
-		
-		$tmp_result=$this->openQuery($strSQL) ;
-		if(!$tmp_result){
-			$this->setError(@mysql_error($this->db_connection),'Search t_question Error!','user.inc','user',$strSQL);
-		}
-		return $tmp_result;
+			$strSQL .= $limitStr;
+			$tmp_result=$this->openQuery($strSQL) ;
+			if(!$tmp_result){
+				$this->setError(@mysql_error($this->db_connection),'Search t_question Error!','user.inc','user',$strSQL);
+			}
+			return $tmp_result;
    }  
    
 	   	  

@@ -1,10 +1,12 @@
 <?php
+	
 	/***********************************************************************
 	 * Module:  php.inc
 	 * Author:  李建军
 	 *Date   :2008-4-3
 	 * Purpose:表操作(增,修,删,改,查)
 	 ***********************************************************************/
+	include_once("../../common/include/common.inc");
 
 	class activity extends BaseTable{
 	     /*
@@ -60,8 +62,23 @@
    }  
    
    /* 获取所有的数据*/
-	    function  a_Search() {
-				
+	    function  a_Search( $page = -1 ) {
+		$limitStr = $page >= 1 ? 
+			" limit " . NUM_OF_ONE_PAGE_ACTIVITY * ( $page - 1) . "," . NUM_OF_ONE_PAGE_ACTIVITY
+			: $limitStr = "";
+		$strOrderby=" order by Aid asc";
+		$strSQL="SELECT * FROM t_activity  Where 1 ".$strOrderby .$limitStr ;
+		$tmp_result=$this->openQuery($strSQL) ;
+		if(!$tmp_result){
+			$this->setError(@mysql_error($this->db_connection),'Search t_activity Error!','user.inc','user',$strSQL);
+		}
+		return $tmp_result;
+   }  
+   
+   /* 按页获取所有的数据*/
+	    function  a_SearchByPage( $page ) {
+		
+		$limitStr = " limit " . NUM_OF_ONE_PAGE_ACTIVITY * $page . "," . NUM_OF_ONE_PAGE_ACTIVITY ;
 		$strOrderby=" order by Aid asc";
 		$strSQL="SELECT * FROM t_activity  Where 1 ".$strOrderby;
 		$tmp_result=$this->openQuery($strSQL) ;

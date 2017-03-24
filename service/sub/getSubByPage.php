@@ -8,10 +8,8 @@
 	include_once("../../common/class/sub.inc");
 	
 	//$Uid = (int) $_POST['Uid'];
-	if( isset($_POST["Aid"]) )
-		$Aid = (int) $_POST['Aid'];
-	else 
-		$Aid = 0;
+	$aid = isset($_POST["Aid"]) ? (int) $_POST['Aid'] : 0;
+	$page_get = isset( $_POST['PageID']) ? (int)$_POST['PageID'] : -1;
 	
 	$subObj = new sub();
 	
@@ -20,8 +18,13 @@
 		$errorObj->showErrors($show_sql_flag=false);
 	}
 	
-	$subObj -> a_Search( $Aid , -1 );
+	$subObj -> a_Search( $aid );
 	$count = $subObj -> getRecordCount();
+	$allPage = ceil( $count / NUM_OF_ONE_PAGE_SUB ) ;
+	
+	$subObj -> a_Search( $aid , $page_get );
+	$count = $subObj -> getRecordCount();
+	
 	
 	//循环将学科读出
 	$SubList = array();
@@ -36,9 +39,9 @@
 		$subObj -> moveNext();
 	}
 	
-	
 	$return_arr = array(
-		'sub' => $SubList
+		'AllPage' => $allPage,
+		'SubList' => $SubList
 	);  
-	echo ( json_encode($SubList));
+	echo ( json_encode($return_arr));
 ?>

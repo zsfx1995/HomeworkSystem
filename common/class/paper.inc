@@ -49,7 +49,7 @@
 			$Str.=" AND Pid='$Pid'";			
 		}
 		
-		$strOrderby=" order by Pid desc";
+		$strOrderby=" order by Pid asc";
 		$strSQL="SELECT * FROM t_paper  Where 1 ".$Str.$strOrderby;
 		$tmp_result=$this->openQuery($strSQL) ;
 		if(!$tmp_result){
@@ -59,8 +59,12 @@
    }  
    
    /* 获取所有的数据/获取活动下的试卷数据/获取指定学科下试卷*/
-	    function  a_Search( $Aid = 0 ,$Sid = 0 ) {
-		$strOrderby=" order by Pid desc";
+	    function  a_Search( $Aid = 0 ,$Sid = 0 , $page = -1 ) {
+		$limitStr = $page >= 1 ? 
+			" limit " . NUM_OF_ONE_PAGE_PAPER* ( $page - 1) . "," . NUM_OF_ONE_PAGE_PAPER
+			: $limitStr = "";
+		
+		$strOrderby=" order by Pid asc";
 		if( $Sid == 0 ){ 
 			if( $Aid == 0 )
 				//查询所有的学科
@@ -74,6 +78,7 @@
 			$strSQL = "SELECT p.* from t_paper p join r_sub_paper r
 						on p.pid = r.pid and r.sid = '$Sid' ";		
 		}
+		$strSQL .= $limitStr;
 		$tmp_result=$this->openQuery($strSQL) ;
 		if(!$tmp_result){
 			$this->setError(@mysql_error($this->db_connection),'Search t_paper Error!','user.inc','user',$strSQL);

@@ -59,21 +59,23 @@
    }  
    
    /* 获取所有的数据/获取活动下的学科数据*/
-	    function  a_Search( $Aid = 0 ) {
-		$strOrderby=" order by Sid ASC";
-		if( $Aid == 0 ){ 
-			//查询所有的学科
-			$strSQL="SELECT * FROM t_sub  Where 1 ".$strOrderby;
-		}else{ 
-			//查询指定活动下的学科
-			$strSQL = "select s.* from t_sub s join r_activity_sub r 
-				on s.sid = r.sid and r.aid = '$Aid' ";	
-		}
-		$tmp_result=$this->openQuery($strSQL) ;
-		if(!$tmp_result){
-			$this->setError(@mysql_error($this->db_connection),'Search t_sub Error!','user.inc','user',$strSQL);
-		}
-		return $tmp_result;
+	    function  a_Search( $Aid = 0, $page = -1 ) {
+			$limitStr = $page >= 1 ? 
+				" limit " . NUM_OF_ONE_PAGE_SUB * ( $page - 1) . "," . NUM_OF_ONE_PAGE_SUB
+				: $limitStr = "";
+			$strOrderby=" order by Sid ASC";
+			
+			$strSQL = $Aid == 0 ? "SELECT * FROM t_sub  Where 1 "
+					: "select s.* from t_sub s join r_activity_sub r on s.sid = r.sid and r.aid = '$Aid' ";	
+			
+			$strSQL .= $strOrderby .= $limitStr;
+			//echo $strSQL;
+			
+			$tmp_result=$this->openQuery($strSQL) ;
+			if(!$tmp_result){
+				$this->setError(@mysql_error($this->db_connection),'Search t_sub Error!','user.inc','user',$strSQL);
+			}
+			return $tmp_result;
    }  
    
 	   	  

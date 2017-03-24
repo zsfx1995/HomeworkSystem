@@ -10,4 +10,10 @@
 	define("dbuser", "root");
 	define("dbpass", "homeworksystem");
 	define("dbname", "d_homeworksystem");
+	
+	//分页查询每页的数据数量
+	define("NUM_OF_ONE_PAGE_ACTIVITY", 5);
+	define("NUM_OF_ONE_PAGE_SUB", 5);
+	define("NUM_OF_ONE_PAGE_PAPER", 5);
+	define("NUM_OF_ONE_PAGE_QUESTION", 5);
 ?>

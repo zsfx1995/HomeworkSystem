@@ -16,7 +16,7 @@
 		$errorObj->showErrors($show_sql_flag=false);
 	}
 	//查出所有的活动
-	$subObj -> a_Search();
+	$subObj -> a_Search( 0 , -1 );
 	$count = $subObj -> getRecordCount();
 	
 	
