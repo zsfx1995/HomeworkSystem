@@ -46,5 +46,5 @@
 		'AllPage' =>  $allPage,
 		'QuestionList' => $QuestionList
 	);  
-	echo json_encode($QuestionList);
+	echo json_encode($return_arr);
 ?>
