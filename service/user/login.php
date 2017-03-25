@@ -9,10 +9,10 @@
 	$Code = 200;
 	$Uid = 0;
 	
-	$type = (int) $_POST['type'];
-	$password =  $_POST['password'];
-	$phone = $_POST['phone'];
-	$mail = $_POST['mail'];
+	$type = isset( $_POST['type'] ) ?  (int) $_POST['type'] : 1 ;
+	$password =   isset( $_POST['password'] ) ? $_POST['password'] : "";
+	$phone = isset( $_POST['phone'] ) ? $_POST['phone'] : "";
+	$mail = isset( $_POST['mail'] ) ? $_POST['mail'] : "";
 	
 	$userObj = new user();
 	if(!$userObj->createConnect()){

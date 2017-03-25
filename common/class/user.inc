@@ -84,6 +84,8 @@
 			$strSQL="SELECT * FROM t_userinfo where 1=1 and mail ='$mail'";
 		else
 			$strSQL="SELECT * FROM t_userinfo where 1=1 and phoneNum ='$phone'";
+		//echo $strSQL;
+		
 		$tmp_result=$this->openQuery($strSQL) ;
 		
 		if(!$tmp_result){

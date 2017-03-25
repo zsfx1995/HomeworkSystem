@@ -20,7 +20,7 @@
 		$errorObj->showErrors($show_sql_flag=false);
 	}
 	
-	$questionObj -> a_Search( $aid , $sid , $pid , $page_get );
+	$questionObj -> a_Search( $aid , $sid , $pid  );
 	$count = $questionObj -> getRecordCount();
 	$allPage = ceil( $count / NUM_OF_ONE_PAGE_QUESTION ) ;
 	
