@@ -32,7 +32,8 @@
 	}
 	
   $return_arr = array(
-		'RespCode' => $RespCode
+		'RespCode' => $RespCode,
+		'PicUrl' =>  P_HOMEPAGE_URL . "image/user/$uid.jpg"
 	);  
 	echo json_encode($return_arr);
 ?>
