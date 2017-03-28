@@ -123,6 +123,10 @@
 			return $this-> getAttriValue('score');
 		}
 		
+		function getPicUrl(){
+			return $this-> getAttriValue('PicUrl');
+		}
+		
 		 function setUserName($a){
 			$this->setAttriValue('UserName',$a) ;
 		}
@@ -144,4 +148,8 @@
 		function setScore($a){
 			$this->setAttriValue('Score',$a) ;
 		}
+		function setPicUrl($a){
+			$this->setAttriValue('PicUrl',$a) ;
+		}
+		
 		}
