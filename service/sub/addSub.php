@@ -9,13 +9,16 @@
 	
 	$title = isset($_POST["title"]) ?  $_POST["title"] : "无";
 	$description = isset($_POST["description"]) ?  $_POST["description"] : "无";
+	$filePath = P_HOMEPAGE_URL . "image/sub/" . date('YmdHis') . '.jpg' ;
 	
+	move_uploaded_file($_FILES["pic"]["tmp_name"], "../../image/sub/" .  date('YmdHis') . '.jpg' );
 	
 	//写入数据库
 	$subObj = new sub();
 	$subObj -> setName( urlencode( $title )  );
 	$subObj -> setDescription( urlencode( $description )  );
-	
+	if ($_FILES["pic"]["error"] <= 0 )
+		$subObj -> setPicUrl( $filePath );
 	
 	//写入数据库
 	if(!$subObj->createConnect()){

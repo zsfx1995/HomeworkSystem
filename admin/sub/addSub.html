@@ -18,7 +18,7 @@
 	<body>
 		<div style="margin: 15px;">
 			
-			<form class="layui-form" method="post" action="../../service/Sub/addSub.php">
+			<form class="layui-form" method="post" enctype="multipart/form-data" action="../../service/Sub/addSub.php">
 				<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
 					<legend>编辑学科</legend>
 				</fieldset>
@@ -37,6 +37,16 @@
 					</div>
 				</div>
 				
+				
+				<div class="layui-form-item layui-form-text">
+					<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+						<legend>上传学科封面</legend>
+					</fieldset>
+					<div   class="layui-input-block"  >
+						<input type="file" name="pic" id ="pic">
+					</div>
+					 
+				</div>
 				
 				<div class="layui-form-item">
 						<div class="layui-input-block">

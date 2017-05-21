@@ -10,7 +10,7 @@ CREATE TABLE T_UserInfo (
 	PhoneNum CHAR(200),
 	AcitivityList text,
 	SubList text,
-	PicUrl CHAR(200) DEFAULT "http://119.23.132.163/image/user/0.jpg",
+	PicUrl CHAR(200) DEFAULT "http://119.23.150.38/image/user/0.jpg",
 	Score int not null DEFAULT 0
 )ENGINE=InnoDB DEFAULT CHARSET=utf8; 
 -- 建错题表
@@ -49,7 +49,7 @@ CREATE TABLE T_Sub(
 	Sid INT  PRIMARY KEY AUTO_INCREMENT,
 	Sname CHAR(200),
 	Description TEXT,
-	PicUrl CHAR(200) DEFAULT "http://119.23.132.163/image/sub/sysu.jpg",
+	PicUrl CHAR(200) DEFAULT "http://119.23.150.38/image/sub/sysu.jpg",
 	Data_create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 活动表
@@ -58,7 +58,7 @@ CREATE TABLE T_Activity(
 	Aname CHAR(200),
 	Description TEXT,
 	Data_create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	PicUrl CHAR(200) DEFAULT "http://119.23.132.163/image/activity/sysu.jpg"
+	PicUrl CHAR(200) DEFAULT "http://119.23.150.38/image/activity/sysu.jpg"
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 标签表
 CREATE TABLE T_Tag(

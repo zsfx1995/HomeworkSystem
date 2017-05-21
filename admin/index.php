@@ -39,8 +39,8 @@
 			<div class="layui-header header header-demo">
 				<div class="layui-main">
 					<div class="admin-login-box">
-						<a class="logo" style="left: 0;" href="http://beginner.zhengjinfan.cn/demo/beginner_admin/">
-							<span style="font-size: 22px;">做题系统管理后台</span>
+						<a class="logo" style="left: 0;" href="http://119.23.150.38/admin/">
+							<span style="font-size: 22px;">移动题库管理后台</span>
 						</a>
 						<div class="admin-side-toggle">
 							<i class="fa fa-bars" aria-hidden="true"></i>

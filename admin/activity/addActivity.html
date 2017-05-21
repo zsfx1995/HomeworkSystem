@@ -18,7 +18,7 @@
 	<body>
 		<div style="margin: 15px;">
 			
-			<form class="layui-form" method="post" action="../../service/Activity/addActivity.php">
+			<form class="layui-form" method="post"  enctype="multipart/form-data" action="../../service/Activity/addActivity.php">
 				<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
 					<legend>编辑活动</legend>
 				</fieldset>
@@ -37,6 +37,18 @@
 					</div>
 				</div>
 				
+				
+				<div class="layui-form-item layui-form-text">
+					<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+						<legend>上传活动封面</legend>
+					</fieldset>
+					<div   class="layui-input-block"  >
+						<input type="file" name="pic" id ="pic">
+					</div>
+					 
+				</div>
+				
+ 
 				<div class="layui-form-item">
 						<div class="layui-input-block">
 							<button class="layui-btn" lay-submit="" lay-filter="submit">立即提交</button>
@@ -71,3 +83,4 @@
 	</body>
 
 </html>
+

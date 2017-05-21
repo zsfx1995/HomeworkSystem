@@ -95,6 +95,10 @@
 
 			return $this-> getAttriValue('Data_create_time');
 		}
+		function getPicUrl(){
+
+			return $this-> getAttriValue('PicUrl');
+		}
 		
 		 function setSname($a){
 			$this->setAttriValue('Sname',$a) ;
@@ -106,5 +110,9 @@
 		 function setDescription($a){
 			$this->setAttriValue('Description',$a) ;
 		 }
+		 
+		  function setPicUrl($a){
+			$this->setAttriValue('PicUrl',$a) ;
+		}
 		
 	}

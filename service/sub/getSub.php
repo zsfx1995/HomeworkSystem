@@ -32,6 +32,7 @@
 		$SubList[$i - 1 ]-> ID = (int) $subObj -> getSid(); 
 		$SubList[$i - 1 ]-> Sname = ($subObj -> getSname());
 		$SubList[$i - 1 ]-> Description = ($subObj -> getDescription());
+		$SubList[$i - 1 ]-> PicUrl = ($subObj -> getPicUrl());
 		
 		$subObj -> moveNext();
 	}

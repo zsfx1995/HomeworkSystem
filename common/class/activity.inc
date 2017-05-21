@@ -1,11 +1,5 @@
 <?php
 	
-	/***********************************************************************
-	 * Module:  php.inc
-	 * Author:  李建军
-	 *Date   :2008-4-3
-	 * Purpose:表操作(增,修,删,改,查)
-	 ***********************************************************************/
 	include_once("../../common/include/common.inc");
 
 	class activity extends BaseTable{

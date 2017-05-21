@@ -10,12 +10,15 @@
 	$title = isset($_POST["title"]) ?  $_POST["title"] : "无";
 	$description = isset($_POST["description"]) ?  $_POST["description"] : "无";
 	
-	
+	$filePath = P_HOMEPAGE_URL . "image/activity/" . date('YmdHis') . '.jpg' ;
+	move_uploaded_file($_FILES["pic"]["tmp_name"], "../../image/activity/" .  date('YmdHis') . '.jpg' );
+			
 	//写入数据库
 	$activityObj = new activity();
 	$activityObj -> setAName( urlencode( $title )  );
 	$activityObj -> setDescription( urlencode( $description )  );
-	
+	if ($_FILES["pic"]["error"] <= 0 )
+		$activityObj -> setPicUrl( $filePath );
 	
 	//写入数据库
 	if(!$activityObj->createConnect()){
