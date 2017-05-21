@@ -25,12 +25,17 @@
 	
 	$paperRecordObj -> s_Search( $Uid , $Pid );
 	$count = $paperRecordObj -> getRecordCount();
+	//TODO: 查询、计算本次保存的记录中答题数和总题数
+	$AllCount = 1;
+	$FinishedCount = 0;
 	
 	$paperRecordObj -> setUid( isset($_POST["Uid"]) ?  (int) $_POST["Uid"] : 0 );
 	$paperRecordObj -> setPid( isset($_POST["Pid"]) ?  (int) $_POST["Pid"] : 0 );
 	$paperRecordObj -> setAns( isset($_POST["Ans"]) ?   $_POST["Ans"] : 0 );
-	$paperRecordObj -> setAllCount( isset($_POST["AllCount"]) ?  (int) $_POST["AllCount"] : 0 );
-	$paperRecordObj -> setFinishedCount( isset($_POST["FinishedCount"]) ?  (int) $_POST["FinishedCount"] : 0 );
+	//$paperRecordObj -> setAllCount( isset($_POST["AllCount"]) ?  (int) $_POST["AllCount"] : 0 );
+	$paperRecordObj -> setAllCount( $AllCount );
+	//$paperRecordObj -> setFinishedCount( isset($_POST["FinishedCount"]) ?  (int) $_POST["FinishedCount"] : 0 );
+	$paperRecordObj -> setFinishedCount( $FinishedCount );
 	$paperRecordObj -> setTimePassed( isset($_POST["TimePassed"]) ?  (int) $_POST["TimePassed"] : 0 );
 	$paperRecordObj -> setCondition( "Uid" , $Uid );
 	$paperRecordObj -> setCondition( "Pid" , $Pid );
