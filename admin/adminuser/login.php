@@ -25,7 +25,7 @@
 		 if( isset($_SESSION['sess_user_id']) )
 			unset($_SESSION['sess_user_id']);
 		 $_SESSION['sess_user_id']= $uid;
-		
+		 
 		 header("location:" . P_HOMEPAGE_URL ."admin/");
 	}
 		

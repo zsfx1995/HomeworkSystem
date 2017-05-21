@@ -38,7 +38,6 @@
 		数据存在则更新
 		数据不存在则插入
 	*/
-	
 	$flag = $count > 0 ? $paperFinishedObj -> updateRecorded() : $paperFinishedObj -> addRecorded() ;
 	if(!$flag){
 		$errorObj=$paperFinishedObj->getError();

@@ -11,7 +11,8 @@ CREATE TABLE T_UserInfo (
 	AcitivityList text,
 	SubList text,
 	PicUrl CHAR(200) DEFAULT "http://119.23.150.38/image/user/0.jpg",
-	Score int not null DEFAULT 0
+	Score int not null DEFAULT 0,
+	RandomText CAHR(200)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8; 
 -- 建错题表
 CREATE TABLE T_Question_Wrong (
@@ -139,7 +140,8 @@ CREATE TABLE T_Admin_User(
 	Uid int not null primary key auto_increment,
 	UserName CHAR(200) not null ,
 	Password CHAR(200) not null,
-	Role INT DEFAULT 0
+	Role INT DEFAULT 0,
+	RandomText CAHR(200)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 默认管理员账号

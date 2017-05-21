@@ -28,6 +28,10 @@
 		if( strcmp( $userObj -> getPassword(), $password ) == 0 ){
 			$Code = 100;
 			$Uid = $userObj -> getUid();
+			session_start();
+			if( isset($_SESSION['sess_user_id']) )
+				unset($_SESSION['sess_user_id']);
+			$_SESSION['sess_user_id']= $Uid;
 		}
 			
 		else{
@@ -41,6 +45,7 @@
 	$return_arr = array(
 		'RespCode' => $Code,
 		'ID' => $Uid
+		
 	);  
 	echo json_encode($return_arr);
 
