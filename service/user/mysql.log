@@ -1,0 +1,16 @@
+2017-05-22 09:00:51执行了SQL:delete from r_user_sub where Uid='4' and Sid='15' 
+2017-05-22 09:01:35执行了SQL:delete from r_user_sub where Uid='4' and Sid='15' 
+2017-05-22 09:02:26执行了SQL:delete from r_user_sub where Uid='4' and Sid='15' 
+2017-05-22 09:03:17执行了SQL:delete from r_user_sub where Uid='4' and Sid='15' 
+2017-05-22 09:04:57执行了SQL:delete from r_user_sub where Uid='4' and Sid='15' 
+2017-05-22 09:05:58执行了SQL:delete from r_user_sub where Uid='4' and Sid='15' 
+2017-05-22 09:06:27执行了SQL:delete from r_user_sub where Uid='4' and Sid='15' 
+2017-05-22 09:06:35执行了SQL:delete from r_user_sub where Uid='4' and Sid='15' 
+2017-05-22 09:06:40执行了SQL:delete from r_user_sub where Uid='4' and Sid='15' 
+2017-05-22 09:06:46执行了SQL:insert into r_user_sub (Uid,Sid) values('4','15')
+2017-05-22 09:06:50执行了SQL:insert into r_user_sub (Uid,Sid) values('4','15')
+2017-05-22 09:07:04执行了SQL:insert into r_user_sub (Uid,Sid) values('4','22')
+2017-05-22 09:07:11执行了SQL:insert into r_user_sub (Uid,Sid) values('4','22')
+2017-05-22 09:07:13执行了SQL:delete from r_user_sub where Uid='4' and Sid='22' 
+2017-05-22 09:07:19执行了SQL:insert into r_user_sub (Uid,Sid) values('4','22')
+2017-05-22 09:09:32执行了SQL:insert into r_user_sub (Uid,Sid) values('4','22')

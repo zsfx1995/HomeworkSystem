@@ -3,8 +3,8 @@
 	session_start();
 	if(!isset($_SESSION['sess_user_id'])) 
    { 
-    echo "Session is not Registered";
+    echo "Session Error";
    }else{
-	   echo "Session is Registered";
+	   echo "Session OK";
    }
 ?>

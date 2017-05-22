@@ -135,6 +135,7 @@ CREATE TABLE T_Ques_Record(
 	Data_lastchange_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	Answer text
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- 管理员账号表
 CREATE TABLE T_Admin_User(
 	Uid int not null primary key auto_increment,
@@ -146,3 +147,14 @@ CREATE TABLE T_Admin_User(
 
 -- 默认管理员账号
 INSERT INTO T_Admin_User ( UserName , Password ) VALUES ( "admin" , "admin ");
+
+
+-- 用户收藏学科关联表
+CREATE TABLE R_User_Sub(
+	Uid INT NOT NULL ,
+	Sid INT NOT NULL,
+	PRIMARY KEY( Uid , Sid ),
+	foreign key(Sid) references T_Sub(Sid) on delete cascade,
+	foreign key(Uid) references T_UserInfo(Uid) on delete cascade,
+	Data_lastchange_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;

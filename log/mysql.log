@@ -1,0 +1,7 @@
+2017-05-22 09:11:53执行了SQL:insert into r_user_sub (Uid,Sid) values('4','22')
+2017-05-22 09:12:07执行了SQL:insert into r_user_sub (Uid,Sid) values('4','22')
+2017-05-22 09:12:50执行了SQL:insert into r_user_sub (Uid,Sid) values('4','22')
+2017-05-22 09:12:58执行了SQL:delete from r_user_sub where Uid='4' and Sid='22' 
+2017-05-22 09:14:19执行了SQL:insert into r_user_sub (Uid,Sid) values('4','22')
+2017-05-22 09:16:08/service/user/userSetSubs.phpinsert into r_user_sub (Uid,Sid) values('4','22')
+2017-05-22 09:18:16 /service/user/userSetSubs.php insert into r_user_sub (Uid,Sid) values('4','22')

@@ -76,6 +76,26 @@
 				$this->setError(@mysql_error($this->db_connection),'Search t_sub Error!','user.inc','user',$strSQL);
 			}
 			return $tmp_result;
+   } 
+   
+   /* 获取指定Uid收藏的学科数据*/
+	    function  u_Search( $Uid = 0, $page = -1 ) {
+			$limitStr = $page >= 1 ? 
+				" limit " . NUM_OF_ONE_PAGE_SUB * ( $page - 1) . "," . NUM_OF_ONE_PAGE_SUB
+				: $limitStr = "";
+			$strOrderby=" order by Sid ASC";
+			
+			$strSQL = $Uid == 0 ? "SELECT * FROM t_sub  Where 1 "
+					: "select s.* from t_sub s join r_user_sub r on s.sid = r.sid and r.uid = '$Uid' ";	
+			
+			$strSQL .= $strOrderby .= $limitStr;
+			
+			
+			$tmp_result=$this->openQuery($strSQL) ;
+			if(!$tmp_result){
+				$this->setError(@mysql_error($this->db_connection),'Search t_sub Error!','user.inc','user',$strSQL);
+			}
+			return $tmp_result;
    }  
    
 	   	  

@@ -116,6 +116,14 @@ class BaseDatabase {
 	@功能：执行无返回结果集的SQL操作语句,例如:UPDATE tb SET column='test'，成功返回True,不成功返回False的同时设定错误信息。
 	*/
 	function executeOperation($str_sql){
+	
+		$txt = "../../log/mysql.log";
+		$addLogStr = date('Y-m-d H:i:s'). " " .  $_SERVER['PHP_SELF'] ." " . $str_sql . "\r\n";
+		$fp = fopen($txt,"a+");
+		fwrite($fp,$addLogStr);
+		fclose($fp);
+		
+		
 		if($this->db_connection!=0){
 			$tmp_res=@mysql_query($str_sql,$this->db_connection);
 			if(!$tmp_res){
