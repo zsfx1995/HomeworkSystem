@@ -40,5 +40,5 @@
 		'AllPage' => $allPage ,
 		'Activity' => $ActList
 	);  
-	echo ( json_encode($return_arr));
+	echo ( json_encode($ActList));
 ?>

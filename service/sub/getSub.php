@@ -44,5 +44,5 @@
 		'AllPage' => $allPage,
 		'SubList' => $SubList
 	);  
-	echo ( json_encode($return_arr));
+	echo ( json_encode($SubList));
 ?>

@@ -44,5 +44,5 @@
 		'AllPage' =>  $allPage ,
 		'PaperList' => $PaperList
 	);  
-	echo  json_encode($return_arr);
+	echo  json_encode($PaperList);
 ?>
