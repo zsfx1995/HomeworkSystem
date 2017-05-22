@@ -8,14 +8,10 @@
 	include_once("../../common/class/paper.inc");
 	
 	//$Uid = (int) $_POST['Uid'];
-	if( isset($_POST["Aid"]) )
-		$Aid = (int) $_POST['Aid'];
-	else 
-		$Aid = 0;
-	if( isset($_POST["Sid"]) )
-		$Sid = (int) $_POST['Sid'];
-	else 
-		$Sid = 0;
+	
+	$aid= isset($_POST["Aid"]) ? (int) $_POST['Aid'] : 0 ;
+	$sid = isset($_POST["Sid"]) ? (int) $_POST['Sid'] : 0 ;
+	$page_get = isset( $_POST['PageID']) ? ( (int)$_POST['PageID'] >= 1 ? (int)$_POST['PageID'] : 1 )  : 1;
 	
 	$paperObj = new paper();
 	
@@ -24,10 +20,13 @@
 		$errorObj->showErrors($show_sql_flag=false);
 	}
 	
-	$paperObj -> a_Search( $Aid , $Sid );
+	$paperObj -> a_Search( $aid, $sid );
+	$count = $paperObj -> getRecordCount();
+	$allPage = ceil( $count / NUM_OF_ONE_PAGE_PAPER ) ;
+	
+	$paperObj -> a_Search( $aid, $sid , $page_get );
 	$count = $paperObj -> getRecordCount();
 	
-	//循环将学科读出
 	$PaperList = array();
 	$paperObj -> moveFirst();
 	for( $i = 1 ; $i <= $count ; $i ++ ){
@@ -42,7 +41,8 @@
 	}
 	
 	$return_arr = array(
-		'paper' => $PaperList
+		'AllPage' =>  $allPage ,
+		'PaperList' => $PaperList
 	);  
-	echo  json_encode($PaperList);
+	echo  json_encode($return_arr);
 ?>

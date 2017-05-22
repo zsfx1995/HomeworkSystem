@@ -7,11 +7,9 @@
 	include_once("../../common/class/error.inc");
 	include_once("../../common/class/sub.inc");
 	
-	//$Uid = (int) $_POST['Uid'];
-	if( isset($_POST["Aid"]) )
-		$Aid = (int) $_POST['Aid'];
-	else 
-		$Aid = 0;
+	$uid = isset($_POST["Uid"]) ? (int) $_POST['Uid'] : 0;
+	$aid = isset($_POST["Aid"]) ? (int) $_POST['Aid'] : 0;
+	$page_get = isset( $_POST['PageID']) ? ( (int)$_POST['PageID'] >= 1 ? (int)$_POST['PageID'] : 1 )  : 1;
 	
 	$subObj = new sub();
 	
@@ -20,8 +18,14 @@
 		$errorObj->showErrors($show_sql_flag=false);
 	}
 	
-	$subObj -> a_Search( $Aid , -1 );
+	//根据uid或者Aid查询学科列表
+	$uid <= 0 ? $subObj -> a_Search( $aid ) : $subObj -> u_Search( $uid );
 	$count = $subObj -> getRecordCount();
+	$allPage = ceil( $count / NUM_OF_ONE_PAGE_SUB ) ;
+	
+	$uid <= 0 ? $subObj -> a_Search( $aid , $page_get ) : $subObj -> u_Search( $uid , $page_get );
+	$count = $subObj -> getRecordCount();
+	
 	
 	//循环将学科读出
 	$SubList = array();
@@ -33,13 +37,12 @@
 		$SubList[$i - 1 ]-> Sname = ($subObj -> getSname());
 		$SubList[$i - 1 ]-> Description = ($subObj -> getDescription());
 		$SubList[$i - 1 ]-> PicUrl = ($subObj -> getPicUrl());
-		
 		$subObj -> moveNext();
 	}
 	
-	
 	$return_arr = array(
-		'sub' => $SubList
+		'AllPage' => $allPage,
+		'SubList' => $SubList
 	);  
-	echo ( json_encode($SubList));
+	echo ( json_encode($return_arr));
 ?>

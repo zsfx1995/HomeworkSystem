@@ -7,16 +7,21 @@
 	include_once("../../common/class/error.inc");
 	include_once("../../common/class/activity.inc");
 	
-		
+	$page_get = isset( $_POST['PageID']) ? ( (int)$_POST['PageID'] >= 1 ? (int)$_POST['PageID'] : 1 )  : 1;
+
 	$actObj = new activity();
 	
 	if(!$actObj->createConnect()){
 		$errorObj=$actObj->getError();
 		$errorObj->showErrors($show_sql_flag=false);
 	}
-	$actObj -> a_Search();
-	$count = $actObj -> getRecordCount();
 	
+	$actObj -> a_Search( );
+	$count = $actObj -> getRecordCount();
+	$allPage = ceil( $count / NUM_OF_ONE_PAGE_ACTIVITY ) ;
+	
+	$actObj -> a_Search( $page_get );
+	$count = $actObj -> getRecordCount();
 	//循环将活动读出
 	$ActList = array();
 	$actObj -> moveFirst();
@@ -32,7 +37,8 @@
 	}
 	
 	$return_arr = array(
+		'AllPage' => $allPage ,
 		'Activity' => $ActList
 	);  
-	echo ( json_encode($ActList));
+	echo ( json_encode($return_arr));
 ?>

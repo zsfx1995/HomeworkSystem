@@ -7,19 +7,11 @@
 	include_once("../../common/class/error.inc");
 	include_once("../../common/class/question.inc");
 	
-	//$Uid = (int) $_POST['Uid'];
-	if( isset($_POST["Aid"]) )
-		$Aid = (int) $_POST['Aid'];
-	else 
-		$Aid = 0;
-	if( isset($_POST["Sid"]) )
-		$Sid = (int) $_POST['Sid'];
-	else 
-		$Sid = 0;
-	if( isset($_POST["Pid"]) )
-		$Pid = (int) $_POST['Pid'];
-	else 
-		$Pid = 0;
+
+	$aid= isset($_POST["Aid"]) ? (int) $_POST['Aid'] : 0 ;
+	$sid = isset($_POST["Sid"]) ? (int) $_POST['Sid'] : 0 ;
+	$pid = isset($_POST["Pid"]) ? (int) $_POST['Pid'] : 0 ;
+	$page_get = isset( $_POST['PageID']) ? ( (int)$_POST['PageID'] >= 1 ? (int)$_POST['PageID'] : 1 )  : 1;
 	
 	$questionObj = new question();
 	
@@ -28,7 +20,11 @@
 		$errorObj->showErrors($show_sql_flag=false);
 	}
 	
-	$questionObj -> a_Search( $Aid , $Sid , $Pid );
+	$questionObj -> a_Search( $aid , $sid , $pid  );
+	$count = $questionObj -> getRecordCount();
+	$allPage = ceil( $count / NUM_OF_ONE_PAGE_QUESTION ) ;
+	
+	$questionObj -> a_Search( $aid , $sid , $pid , $page_get );
 	$count = $questionObj -> getRecordCount();
 	
 	//循环将学科读出
@@ -38,13 +34,17 @@
 		$questionObj -> getOneRecord();
 		$QuestionList[$i - 1 ] = new stdClass();
 		$QuestionList[$i - 1 ]-> ID = (int) $questionObj -> getQid(); 
-		
+		$QuestionList[$i - 1 ]-> Type = (int)$questionObj -> getType();
+		$QuestionList[$i - 1 ]-> Detail = $questionObj -> getDetail();
+		$QuestionList[$i - 1 ]-> Ans =  $questionObj -> getAns();
+		$QuestionList[$i - 1 ]-> Tips =  $questionObj -> getTips() ;
 	
 		$questionObj -> moveNext();
 	}
 	
 	$return_arr = array(
-		'question' => $QuestionList
+		'AllPage' =>  $allPage,
+		'QuestionList' => $QuestionList
 	);  
-	echo json_encode($QuestionList);
+	echo json_encode($return_arr);
 ?>
