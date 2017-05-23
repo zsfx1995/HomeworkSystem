@@ -37,11 +37,9 @@
 		$QuestionList[$i - 1 ]-> Type = (int)$questionObj -> getType();
 		$QuestionList[$i - 1 ]-> Detail = $questionObj -> getDetail();
 		$QuestionList[$i - 1 ]-> Tips =  $questionObj -> getTips() ;
-			
 		$ansStr = $questionObj -> getAns();
-		$QuestionList[$i - 1 ]-> Ans = (int)$questionObj -> getType() < 3 ?  json_decode($ansStr, true) :
-			array ( array( "content" => "he is lazy" , "right" => $ansStr ) ) ;
-
+ 		$QuestionList[$i - 1 ]-> Ans = (int)$questionObj -> getType() < 3 ?  json_decode($ansStr, true) :
+ 			array ( array( "content" => "he is lazy" , "right" => $ansStr ) ) ;
 		$questionObj -> moveNext();
 	}
 	
