@@ -42,4 +42,7 @@
 	); 
 
 	echo  json_encode($return_arr);
+	include_once("../../common/include/log.inc");
+	$manager = new logManager();
+	$manager -> httpLog(json_encode($return_arr));
 ?>

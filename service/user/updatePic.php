@@ -36,4 +36,8 @@
 		'PicUrl' =>  P_HOMEPAGE_URL . "image/user/$uid.jpg"
 	);  
 	echo json_encode($return_arr);
+	
+	include_once("../../common/include/log.inc");
+	$manager = new logManager();
+	$manager -> httpLog(json_encode($return_arr));
 ?>

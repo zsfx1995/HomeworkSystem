@@ -1,4 +1,5 @@
 <?php
+
 /*
  @名称：	数据库抽象类
  @功能：	建立与数据库服务器的连接，并选择所要操作的数据库。	
@@ -9,6 +10,9 @@
  @作者：王永固
  @时间：2005年2月1日
 */
+
+include_once("../../common/include/log.inc");
+
 class BaseDatabase {
 	var $host_name;				// = "";
 	var $database;				// = "";
@@ -76,6 +80,10 @@ class BaseDatabase {
 	@名称：执行Select查询语句	@描述：执行有返回结果集的Select查询语句,并获得查询结果的记录条数,并根据查询结果设定记录指针的位置。
 	*/
 	function openQuery($str_sql){
+	
+		$manager = new logManager();
+		$manager -> sqlLog($str_sql);
+		
 		if($this->db_connection == 0){
 			$this->setError("Database hadn't be connected",'','baseDatabase.php','BaseDB','');
 			return false;
@@ -117,11 +125,8 @@ class BaseDatabase {
 	*/
 	function executeOperation($str_sql){
 	
-		$txt = "../../log/mysql.log";
-		$addLogStr = date('Y-m-d H:i:s'). " " .  $_SERVER['PHP_SELF'] ." " . $str_sql . "\r\n";
-		$fp = fopen($txt,"a+");
-		fwrite($fp,$addLogStr);
-		fclose($fp);
+		$manager = new logManager();
+		$manager -> sqlLog($str_sql);
 		
 		
 		if($this->db_connection!=0){

@@ -1,6 +1,7 @@
 <?php
 	
 	include_once("../../common/include/common.inc");
+	include_once("../../common/include/log.inc");
 	include_once("../../common/class/baseDatabase.inc");
 	include_once("../../common/class/baseTable.inc");
 	include_once("../../common/class/user.inc");
@@ -47,5 +48,11 @@
 		'AllPage' =>  $allPage,
 		'QuestionList' => $QuestionList
 	);  
+
+	include_once("../../common/include/log.inc");
+	$manager = new logManager();
+	$manager -> httpLog(json_encode($QuestionList));
+	
 	echo json_encode($QuestionList);
+	
 ?>

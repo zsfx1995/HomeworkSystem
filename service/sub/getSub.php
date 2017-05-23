@@ -45,4 +45,8 @@
 		'SubList' => $SubList
 	);  
 	echo ( json_encode($SubList));
+	
+	include_once("../../common/include/log.inc");
+	$manager = new logManager();
+	$manager -> httpLog(json_encode($return_arr));
 ?>

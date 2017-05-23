@@ -34,4 +34,9 @@
 		'Data_lastchange_time' => $paperRecordObj -> getData_lastchange_time()
 	);  
 	echo  json_encode($return_arr);
+	
+	
+	include_once("../../common/include/log.inc");
+	$manager = new logManager();
+	$manager -> httpLog(json_encode($return_arr));
 ?>
