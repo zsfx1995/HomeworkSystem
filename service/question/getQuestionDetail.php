@@ -22,14 +22,15 @@
 	
 	$questionObj -> s_Search( $Qid );
 	$questionObj -> getOneRecord();
-	
+	$ansStr = $questionObj -> getAns();
 	
 	$return_arr = array(
 		'ID' => (int) $questionObj -> getQid(),
 		'Type' => (int)$questionObj -> getType(),
 		'Detail' => $questionObj -> getDetail() ,
-		'Ans' =>  $questionObj -> getAns() ,
-		'Tips' =>   $questionObj -> getTips() 
+		'Tips' =>   $questionObj -> getTips(),
+		'Ans' => (int)$questionObj -> getType() < 3 ?  json_decode($ansStr, true) :
+			array ( array( "content" => "he is lazy" , "right" => $ansStr ) ) 
 	);  
 	echo json_encode($return_arr);
 ?>
