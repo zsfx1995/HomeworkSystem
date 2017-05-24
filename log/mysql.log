@@ -1,0 +1,16 @@
+2017-05-24 23:13:14 /service/user/reg.php SELECT * FROM t_userinfo where 1=1 and mail ='fuck'
+2017-05-24 23:13:41 /service/user/reg.php SELECT * FROM t_userinfo where 1=1 and mail ='77778888'
+2017-05-24 23:13:41 /service/user/reg.php insert into t_userinfo (Mail,Password) values('77778888','77778888')
+2017-05-24 23:15:09 /service/user/updateDetail.php SELECT * FROM t_userinfo  Where 1  AND Uid='9' order by Uid desc
+2017-05-24 23:15:37 /service/user/updateDetail.php SELECT * FROM t_userinfo  Where 1  AND Uid='9' order by Uid desc
+2017-05-24 23:15:37 /service/user/updateDetail.php update t_userinfo set UserName='aaa', Mail='bbb', PhoneNum='eee', Password='ddd' where Uid='9' 
+2017-05-24 23:15:46 /service/user/updateDetail.php SELECT * FROM t_userinfo  Where 1  AND Uid='9' order by Uid desc
+2017-05-24 23:15:46 /service/user/updateDetail.php update t_userinfo set UserName='aaa', Mail='bbb', PhoneNum='eee', Password='ddd' where Uid='9' 
+2017-05-24 23:15:56 /service/user/updateDetail.php SELECT * FROM t_userinfo  Where 1  AND Uid='9' order by Uid desc
+2017-05-24 23:15:56 /service/user/updateDetail.php update t_userinfo set UserName='aaa', Mail='bbb', PhoneNum='eee', Password='ddd' where Uid='9' 
+2017-05-24 23:15:57 /service/user/updateDetail.php SELECT * FROM t_userinfo  Where 1  AND Uid='9' order by Uid desc
+2017-05-24 23:15:57 /service/user/updateDetail.php update t_userinfo set UserName='aaa', Mail='bbb', PhoneNum='eee', Password='ddd' where Uid='9' 
+2017-05-24 23:19:29 /service/user/reg.php SELECT * FROM t_userinfo where 1=1 and mail ='77778888'
+2017-05-24 23:19:29 /service/user/reg.php insert into t_userinfo (Mail,Password) values('77778888','77778888')
+2017-05-24 23:20:01 /service/user/updateDetail.php SELECT * FROM t_userinfo  Where 1  AND Uid='12' order by Uid desc
+2017-05-24 23:33:00 /service/user/login.php SELECT * FROM t_userinfo where 1=1 and mail ='fuck'

@@ -6,11 +6,12 @@
 	include_once("../../common/class/user.inc");
 	include_once("../../common/class/error.inc");
 	
-	$uid = isset( $_POST['Uid'] ) ?  (int) $_POST['Uid'] : 0 ;
-	$userName = isset( $_POST['UserName'] ) ?  $_POST['UserName'] : "" ;
-	$mail = isset( $_POST['Mail'] ) ?  $_POST['Mail'] : "" ;
-	$phoneNum = isset( $_POST['PhoneNum'] ) ?  $_POST['PhoneNum'] : "" ;
-	$subList= isset( $_POST['SubList'] ) ?  $_POST['SubList'] : "" ;
+	$uid = isset( $_POST['uid'] ) ?  (int) $_POST['uid'] : 0 ;
+	$userName = isset( $_POST['userName'] ) ?  $_POST['userName'] : "" ;
+	$mail = isset( $_POST['mail'] ) ?  $_POST['mail'] : "" ;
+	$phoneNum = isset( $_POST['phone'] ) ?  $_POST['phone'] : "" ;
+	$password = isset( $_POST['password'] ) ?  $_POST['password'] : "" ;
+	
 
 	$userObj = new user();
 	$temp_userObj = new user();
@@ -34,8 +35,9 @@
 		$temp_userObj -> setCondition( 'Uid' , $uid);
 		$temp_userObj-> setUserName ( $userName == '' ?  $userObj -> getUserName() : $userName );
 		$temp_userObj-> setMail ( $mail == '' ?  $userObj -> getMail() : $mail );
-		$temp_userObj-> setPhoneNum ( $phoneNum == '' ?  $userObj -> getPhoneNum() : $phoneNum );
-		$temp_userObj-> setSubList ( $subList== '' ?  $userObj -> getSubList() : $subList );
+		$temp_userObj-> setPhone ( $phoneNum == '' ?  $userObj -> getPhone() : $phoneNum );
+		$temp_userObj-> setPassword ( $password == '' ?  $userObj -> getPassword() : $password);
+		
 		
 		$temp_userObj -> updateRecord();
 		$RespCode = 100;

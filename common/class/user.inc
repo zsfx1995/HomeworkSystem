@@ -110,7 +110,7 @@
 		function getMail(){
 			return $this-> getAttriValue('mail');
 		}
-		function getPhoneNum(){
+		function getPhone(){
 			return $this-> getAttriValue('phoneNum');
 		}
 		function getAcitivityList(){
@@ -136,7 +136,7 @@
 		function setMail($a){
 			$this->setAttriValue('Mail',$a) ;
 		}
-		function setPhoneNum($a){
+		function setPhone($a){
 			$this->setAttriValue('PhoneNum',$a) ;
 		}
 		function setAcitivityList($a){

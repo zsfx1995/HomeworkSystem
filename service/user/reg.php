@@ -27,7 +27,7 @@
 		if( $type == 1 )
 			$userObj -> setMail($mail);
 		else
-			$userObj -> setPhoneNum ( $phone );
+			$userObj -> setPhone ( $phone );
 		
 		$userObj -> setPassword ( $password );
 		$user_flag=$userObj->addRecorded();
