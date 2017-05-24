@@ -17,12 +17,11 @@
 	$userObj -> getOneRecord();
 	
 	$return_arr = array(
-		'UserName' => $userObj -> getUserName(),
-		'Mail' => $userObj -> getMail(),
-		'PhoneNum' => $userObj -> getPhoneNum(),
-		'SubList' => $userObj -> getSubList(),
-		'PicUrl' => $userObj -> getPicUrl(),
-		'Score' => $userObj -> getScore()
+		'userName' => $userObj -> getUserName(),
+		'mail' => $userObj -> getMail(),
+		'phone' => $userObj -> getPhone(),
+		'picUrl' => $userObj -> getPicUrl(),
+		'score' => $userObj -> getScore()
 		);  
 	echo json_encode($return_arr);
 	
